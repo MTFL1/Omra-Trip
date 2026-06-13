@@ -71,10 +71,10 @@ export default function PackageCard({ offer, onSelect, isPopular }) {
 
       {/* Tier label */}
       <div>
-        <span className="font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-gold)]">
+        <span className="font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-dark)]">
           {t(`offers.tiers.${offer.tier}`)}
         </span>
-        <p className="text-[11px] text-gray-400 uppercase tracking-widest mt-1">{offer.duration}</p>
+        <p className="text-[11px] text-gray-500 uppercase tracking-widest mt-1">{offer.duration}</p>
       </div>
 
       {/* Gold divider */}
@@ -114,6 +114,14 @@ export default function PackageCard({ offer, onSelect, isPopular }) {
           ))}
         </ul>
       )}
+
+      {/* Urgency signal */}
+      <p
+        className="font-body text-center"
+        style={{ fontSize: '0.75rem', color: 'var(--color-gold-dark)' }}
+      >
+        {t('offers.urgency')}
+      </p>
 
       {/* CTA */}
       <div className="mt-auto pt-2">

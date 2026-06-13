@@ -26,8 +26,8 @@ export default function App() {
         <AboutSection />
         <MedinaSection />
         <OffersSection />
-        <ReviewsSection />
         <BookingSection />
+        <ReviewsSection />
         <RoomsSection />
         
         <FAQSection />

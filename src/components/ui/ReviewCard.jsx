@@ -96,13 +96,6 @@ export default function ReviewCard({ review }) {
       {/* Stars */}
       <StarRating rating={review.rating} />
 
-      {/* Package tag */}
-      <div>
-        <span className="text-xs px-2 py-0.5 rounded-full border border-[var(--color-gold-light)] text-[var(--color-gold)]">
-          {review.package}
-        </span>
-      </div>
-
       {/* Review text with expand/collapse */}
       <div className="flex flex-col gap-1">
         <p

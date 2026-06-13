@@ -1,112 +1,139 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
-import PackageCard from '@/components/ui/PackageCard'
 import SectionTitle from '@/components/ui/SectionTitle'
+import Button from '@/components/ui/Button'
 import { offers } from '@/data/index'
 
-const FILTERS = [
-  { value: 'all',        labelKey: 'offers.filter_all' },
-  { value: 'economique', labelKey: 'offers.filter_eco' },
-  { value: 'premium',    labelKey: 'offers.filter_premium' },
-]
+const ecoOffer     = offers.find((o) => o.tier === 'economique')
+const premiumOffer = offers.find((o) => o.tier === 'premium')
+
+function TierCard({ offer, labelKey, noteKey, isPopular, t }) {
+  return (
+    <div
+      className={[
+        'relative rounded-2xl p-5 bg-white',
+        isPopular
+          ? 'border-2 border-[var(--color-gold)] shadow-[0_0_32px_rgba(201,168,76,0.12)]'
+          : 'border border-[var(--color-gold)]/30',
+      ].join(' ')}
+    >
+      {isPopular && (
+        <div
+          className="absolute -top-3 left-4 bg-[var(--color-gold)] text-[var(--color-black)] text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full"
+          aria-label={t('offers.popular')}
+        >
+          {t('offers.popular')}
+        </div>
+      )}
+
+      <div className="flex justify-between items-start gap-4">
+        <span className="font-body text-sm font-semibold text-[var(--color-text-dark)] uppercase tracking-wide pt-1">
+          {t(labelKey)}
+        </span>
+        <div className="text-right flex-shrink-0">
+          <span className="font-body text-[11px] text-gray-400 block leading-none mb-0.5">
+            {t('offers.from')}
+          </span>
+          <div className="flex items-baseline gap-1">
+            <span className="font-display-latin text-3xl font-bold text-[var(--color-text-dark)]">
+              {offer.price.toLocaleString('fr-FR')}
+            </span>
+            <span className="font-body text-base font-medium text-gray-500">
+              {offer.currency}
+            </span>
+          </div>
+          <span className="font-body text-[11px] text-gray-400 block leading-none mt-0.5">
+            / pers.
+          </span>
+        </div>
+      </div>
+
+      <p className="font-body text-xs text-gray-500 mt-3 leading-relaxed border-t border-gray-100 pt-3">
+        {t(noteKey)}
+      </p>
+    </div>
+  )
+}
 
 export default function OffersSection() {
-  const { t } = useTranslation()
+  const { t }         = useTranslation()
   const reducedMotion = useReducedMotion()
-  const [activeFilter, setActiveFilter] = useState('all')
+  const ref           = useRef(null)
+  const inView        = useInView(ref, { once: true, margin: '-60px' })
 
-  const filtered =
-    activeFilter === 'all' ? offers : offers.filter((o) => o.tier === activeFilter)
-
-  const cardTransition = { duration: reducedMotion ? 0.15 : 0.3 }
+  const highlights = ecoOffer?.highlights ?? []
 
   return (
     <section
       id="offers"
       aria-label="Nos offres"
       className="section-padding"
-      style={{ background: 'var(--color-black)' }}
+      style={{ background: 'var(--color-gray-soft)' }}
     >
       <div className="container-max">
         <SectionTitle
           eyebrow={t('offers.eyebrow')}
           subtitle={t('offers.subtitle')}
           align="center"
-          dark={true}
+          dark={false}
         />
 
-        {/* Filter tabs */}
-        <div
-          role="tablist"
-          aria-label="Filtrer les offres"
-          className="flex gap-2 justify-center mt-10 mb-12 flex-wrap"
-        >
-          {FILTERS.map(({ value, labelKey }) => {
-            const isActive = activeFilter === value
-            return (
-              <button
-                key={value}
-                role="tab"
-                aria-selected={isActive}
-                onClick={() => setActiveFilter(value)}
-                className={[
-                  'rounded-full px-5 py-2 text-sm font-medium transition-all duration-200',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]',
-                  isActive
-                    ? 'bg-[var(--color-gold)] text-[var(--color-black)]'
-                    : 'border border-[var(--color-gold-light)]/30 text-[var(--color-text-light)] hover:border-[var(--color-gold)]',
-                ].join(' ')}
-              >
-                {t(labelKey)}
-              </button>
-            )
-          })}
-        </div>
-
-        {/* Cards grid */}
         <motion.div
-          layout
-          className={[
-            'mt-4 mx-auto',
-            filtered.length === 1
-              ? 'max-w-md'
-              : 'grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl',
-          ].join(' ')}
+          ref={ref}
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: reducedMotion ? 0.15 : 0.6, ease: 'easeOut' }}
+          className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto items-start"
         >
-          <AnimatePresence mode="popLayout">
-            {filtered.map((offer) => (
-              <motion.div
-                key={offer.id}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={cardTransition}
-              >
-                <PackageCard
-                  offer={offer}
-                  isPopular={offer.badge === 'popular'}
-                  onSelect={(o) => {
-                    const waMsg = encodeURIComponent(
-                      `Bonjour, je suis intéressé par la formule ${o.tier} à ${o.price}${o.currency}.`
-                    )
-                    window.open(`https://wa.me/33600000000?text=${waMsg}`, '_blank')
-                  }}
-                />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+          {/* ── Left: included features ── */}
+          <div>
+            <p className="font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-dark)] mb-5">
+              {t('offers.included_in_both')}
+            </p>
+            <ul className="flex flex-col gap-3" aria-label={t('offers.included_in_both')}>
+              {highlights.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="text-[var(--color-gold)] flex-shrink-0 mt-0.5" aria-hidden="true">✦</span>
+                  <span className="font-body text-sm text-[var(--color-text-dark)] leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Disclaimer */}
-        <p
-          className="mt-10 text-center text-xs"
-          style={{ color: 'color-mix(in srgb, var(--color-text-light) 50%, transparent)' }}
-        >
-          {t('offers.disclaimer')}
-        </p>
+          {/* ── Right: tier cards + CTA ── */}
+          <div className="flex flex-col gap-4">
+            <TierCard
+              offer={ecoOffer}
+              labelKey="offers.tiers.economique"
+              noteKey="offers.eco_note"
+              isPopular={false}
+              t={t}
+            />
+            <TierCard
+              offer={premiumOffer}
+              labelKey="offers.tiers.premium"
+              noteKey="offers.premium_note"
+              isPopular={true}
+              t={t}
+            />
+
+            <p className="font-body text-xs text-gray-400 text-center">
+              {t('offers.disclaimer')}
+            </p>
+
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={() =>
+                document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              {t('offers.select')}
+            </Button>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

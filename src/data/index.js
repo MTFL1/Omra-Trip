@@ -1,12 +1,12 @@
 const SHARED_HIGHLIGHTS = [
-  'Hôtels 5★ à Makkah',
-  'Hôtels 5★ et 4★ à Madina — au pied du Haram',
-  'Vols directs + taxes (Saudia Airlines)',
-  'Visa touristique (ressortissants Schengen)',
+  'Hôtels 5 ⭐️ à 200m de la Mosquée Al-Haram, Makkah',
+  'Hôtels 5 ⭐️ et 4 ⭐️ à Madina — au pied du Haram',
+  'Vols directs + taxes incluses (Saudia Airlines)',
+  'Visa Schengen intégralement pris en charge',
   '2×23 kg en soute + 8 kg cabine',
-  'Transferts Makkah ↔ Madina',
-  'Visites & cours en salle de conférence',
-  'Petit-déjeuner inclus',
+  'Transferts privés Makkah ↔ Madina',
+  'Visites guidées & préparation spirituelle incluses',
+  'Petit-déjeuner chaque matin à l\'hôtel',
 ]
 
 export const offers = [
@@ -37,24 +37,21 @@ export const rooms = [
     id: 'quadruple',
     type: 'quadruple',
     capacity: 4,
-    priceModifier: 0,
     amenities: ['Climatisation', 'WiFi gratuit', 'Salle de bain privée', 'TV satellite'],
+    image: null,
+  },
+  {
+    id: 'triple',
+    type: 'triple',
+    capacity: 3,
+    amenities: ['Climatisation', 'WiFi gratuit', 'Salle de bain privée', 'TV satellite', 'Minibar'],
     image: null,
   },
   {
     id: 'double',
     type: 'double',
     capacity: 2,
-    priceModifier: 400,
     amenities: ['Climatisation', 'WiFi gratuit', 'Salle de bain privée', 'TV satellite', 'Minibar'],
-    image: null,
-  },
-  {
-    id: 'single',
-    type: 'single',
-    capacity: 1,
-    priceModifier: 900,
-    amenities: ['Climatisation', 'WiFi gratuit', 'Salle de bain privée', 'TV satellite', 'Minibar', 'Vue panoramique'],
     image: null,
   },
 ]

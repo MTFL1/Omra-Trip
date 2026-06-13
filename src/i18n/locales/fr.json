@@ -14,8 +14,8 @@
     "eyebrow": "Voyage spirituel vers les lieux saints",
     "title": "Accomplissez votre Omra en toute sérénité",
     "subtitle": "Des formules pensées pour chaque pèlerin.",
-    "cta_offers": "Voir les offres",
-    "cta_contact": "Nous contacter",
+    "cta_offers": "Réserver ma place",
+    "cta_contact": "Parler à un conseiller",
     "scroll_hint": "Découvrir"
   },
   "about": {
@@ -26,21 +26,22 @@
     "p2": "Notre agence vous accompagne pas à pas : visa, logement à proximité des lieux saints, guidance spirituelle et assistance 24h/24. Votre sérénité est notre priorité.",
     "stat1_value": "500+",
     "stat1_label": "Pèlerins accompagnés",
-    "stat2_value": "10",
+    "stat2_value": "4",
     "stat2_label": "Ans d'expérience",
     "stat3_value": "98%",
     "stat3_label": "Taux de satisfaction"
   },
   "offers": {
     "eyebrow": "Nos formules",
-    "subtitle": "Deux formules sont disponibles : Éco et Premium, selon votre budget.",
-    "filter_all": "Toutes",
-    "filter_eco": "Économique",
-    "filter_comfort": "Confort",
-    "filter_premium": "Premium",
+    "subtitle": "Mêmes prestations, même accompagnement. La différence : la catégorie d'hébergement.",
     "popular": "Recommandé",
-    "select": "Choisir cette formule",
-    "disclaimer": "Tarifs indicatifs par personne.",
+    "select": "Configurer ma réservation",
+    "urgency": "⚡ Places limitées",
+    "disclaimer": "Tarifs indicatifs — chambre quad, par personne.",
+    "from": "À partir de",
+    "included_in_both": "Inclus dans les deux formules",
+    "eco_note": "Hôtels 3 à 4★ selon disponibilité — précisés après votre devis",
+    "premium_note": "Hôtels 5★ garantis, à 200m de la Mosquée Al-Haram",
     "tiers": {
       "economique": "Économique",
       "confort": "Confort",
@@ -58,7 +59,7 @@
   "reviews": {
     "eyebrow": "Témoignages",
     "title": "Ce que disent nos pèlerins",
-    "subtitle": "Des milliers de fidèles nous ont fait confiance.",
+    "subtitle": "Des centaines de fidèles nous ont fait confiance.",
     "soon": "Témoignages bientôt disponibles"
   },
   "faq": {
@@ -81,7 +82,7 @@
   "cta": {
     "title": "Prêt à accomplir votre Omra ?",
     "subtitle": "Contactez-nous sur WhatsApp pour obtenir un devis personnalisé et gratuit.",
-    "button": "Démarrer sur WhatsApp"
+    "button": "Réserver ma place sur WhatsApp"
   },
   "footer": {
     "tagline": "Votre voyage spirituel, notre engagement.",
@@ -98,6 +99,6 @@
     "made_with": "Fait avec ♥ pour les pèlerins"
   },
   "whatsapp": {
-    "message": "Bonjour, je souhaite obtenir des informations sur vos formules Omra."
+    "message": "Salam alaycom, je souhaite obtenir des informations sur vos formules Omra."
   }
 }

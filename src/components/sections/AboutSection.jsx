@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import SectionTitle from '@/components/ui/SectionTitle'
 import ArabesquePattern from '@/components/ui/ArabesquePattern'
-import mapImage from '@/assets/map.png'
+import mapImage from '@/assets/map.webp'
 
 // ── AnimatedCounter ─────────────────────────────────────────────────────────
 // Parses a value string like "500+", "10", "98%" and animates from 0 to the
@@ -167,6 +167,10 @@ export default function AboutSection() {
           <img
             src={mapImage}
             alt="Carte des villes de départ"
+            width="722"
+            height="394"
+            loading="lazy"
+            decoding="async"
             className="w-full rounded-xl object-contain"
             style={{ maxHeight: '360px', border: '1.5px solid var(--color-gold)', opacity: 0.9 }}
           />

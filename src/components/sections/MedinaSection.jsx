@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
@@ -9,6 +9,26 @@ export default function MedinaSection() {
   const { t } = useTranslation()
   const reducedMotion = useReducedMotion()
   const sectionRef = useRef(null)
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video || reducedMotion) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {})
+        } else {
+          video.pause()
+        }
+      },
+      { threshold: 0.25 }
+    )
+
+    observer.observe(video)
+    return () => observer.disconnect()
+  }, [reducedMotion])
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -43,11 +63,12 @@ export default function MedinaSection() {
         }}
       >
         <video
+          ref={videoRef}
           src={medinaVideo}
-          autoPlay
           muted
           loop
           playsInline
+          preload="metadata"
           style={{
             width: '100%',
             height: '100%',

@@ -13,8 +13,8 @@
     "eyebrow": "Spiritual journey to the Holy Sites",
     "title": "Perform your Umrah in complete serenity",
     "subtitle": "Packages designed for every pilgrim — from economy to premium.",
-    "cta_offers": "See packages",
-    "cta_contact": "Contact us",
+    "cta_offers": "Reserve my spot",
+    "cta_contact": "Talk to an advisor",
     "scroll_hint": "Discover"
   },
   "about": {
@@ -25,7 +25,7 @@
     "p2": "Our agency guides you step by step: visa, accommodation near the Holy Sites, spiritual guidance, and 24/7 assistance. Your peace of mind is our priority.",
     "stat1_value": "500+",
     "stat1_label": "Pilgrims accompanied",
-    "stat2_value": "10",
+    "stat2_value": "4",
     "stat2_label": "Years of experience",
     "stat3_value": "98%",
     "stat3_label": "Satisfaction rate"
@@ -33,14 +33,15 @@
   "offers": {
     "eyebrow": "Our packages",
     "title": "Choose your journey",
-    "subtitle": "Three comfort levels so every pilgrim finds their package.",
-    "filter_all": "All",
-    "filter_eco": "Economy",
-    "filter_comfort": "Comfort",
-    "filter_premium": "Premium",
+    "subtitle": "Same core package, same guidance. The difference: your accommodation tier.",
     "popular": "Recommended",
-    "select": "Choose this package",
-    "disclaimer": "Indicative prices per person in a quad room. Group discounts available.",
+    "select": "Configure my booking",
+    "urgency": "⚡ Limited spots",
+    "disclaimer": "Indicative prices — quad room, per person.",
+    "from": "From",
+    "included_in_both": "Included in both packages",
+    "eco_note": "3 to 4★ hotels based on availability — confirmed after your quote",
+    "premium_note": "Guaranteed 5★ hotels, 200m from Al-Haram Mosque",
     "tiers": {
       "economique": "Economy",
       "confort": "Comfort",
@@ -81,7 +82,7 @@
   "cta": {
     "title": "Ready to perform your Umrah?",
     "subtitle": "Contact us on WhatsApp for a free personalized quote.",
-    "button": "Start on WhatsApp"
+    "button": "Reserve my spot on WhatsApp"
   },
   "footer": {
     "tagline": "Your spiritual journey, our commitment.",
@@ -98,6 +99,6 @@
     "made_with": "Made with ♥ for pilgrims"
   },
   "whatsapp": {
-    "message": "Hello, I would like to get information about your Umrah packages."
+    "message": "Salam alaycom, I would like to get information about your Umrah packages."
   }
 }

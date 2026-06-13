@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import ReviewCard from '@/components/ui/ReviewCard'
 import SectionTitle from '@/components/ui/SectionTitle'
-import ArabesquePattern from '@/components/ui/ArabesquePattern'
 import { reviews } from '@/data/index'
 
 // ── EmptyPlaceholder ──────────────────────────────────────────────────────────
@@ -46,7 +45,7 @@ function NavigationDots({ count, currentIndex, onSelect }) {
           aria-label={`Témoignage ${i + 1}`}
           onClick={() => onSelect(i)}
           className="relative flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded-full"
-          style={{ '--tw-ring-color': 'var(--color-gold)', '--tw-ring-offset-color': 'var(--color-black)' }}
+          style={{ '--tw-ring-color': 'var(--color-gold)', '--tw-ring-offset-color': 'var(--color-white)' }}
         >
           <motion.span
             layout
@@ -58,7 +57,7 @@ function NavigationDots({ count, currentIndex, onSelect }) {
               background:
                 currentIndex === i
                   ? 'var(--color-gold)'
-                  : 'color-mix(in srgb, var(--color-gold-light) 30%, transparent)',
+                  : 'rgba(201, 168, 76, 0.25)',
             }}
           />
         </button>
@@ -136,22 +135,15 @@ export default function ReviewsSection() {
       id="reviews"
       aria-label="Avis"
       className="section-padding relative overflow-hidden"
-      style={{ background: 'var(--color-black)' }}
+      style={{ background: 'var(--color-white)' }}
     >
-      {/* Decorative arabesque background */}
-      <ArabesquePattern
-        color="var(--color-gold)"
-        opacity={0.04}
-        className="absolute inset-0"
-      />
-
       <div className="container-max relative z-10">
         <SectionTitle
           eyebrow={t('reviews.eyebrow')}
           title={t('reviews.title')}
           subtitle={t('reviews.subtitle')}
           align="center"
-          dark={true}
+          dark={false}
         />
 
         {!hasReviews ? (
