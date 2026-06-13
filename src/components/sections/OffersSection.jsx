@@ -9,7 +9,6 @@ import { offers } from '@/data/index'
 const FILTERS = [
   { value: 'all',        labelKey: 'offers.filter_all' },
   { value: 'economique', labelKey: 'offers.filter_eco' },
-  { value: 'confort',    labelKey: 'offers.filter_comfort' },
   { value: 'premium',    labelKey: 'offers.filter_premium' },
 ]
 
@@ -33,7 +32,6 @@ export default function OffersSection() {
       <div className="container-max">
         <SectionTitle
           eyebrow={t('offers.eyebrow')}
-          title={t('offers.title')}
           subtitle={t('offers.subtitle')}
           align="center"
           dark={true}
@@ -70,11 +68,12 @@ export default function OffersSection() {
         {/* Cards grid */}
         <motion.div
           layout
-          className={
+          className={[
+            'mt-4 mx-auto',
             filtered.length === 1
-              ? 'max-w-md mx-auto mt-4'
-              : 'grid grid-cols-1 md:grid-cols-3 gap-8 mt-4'
-          }
+              ? 'max-w-md'
+              : 'grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl',
+          ].join(' ')}
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((offer) => (

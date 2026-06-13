@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import SectionTitle from '@/components/ui/SectionTitle'
 import ArabesquePattern from '@/components/ui/ArabesquePattern'
+import mapImage from '@/assets/map.png'
 
 // ── AnimatedCounter ─────────────────────────────────────────────────────────
 // Parses a value string like "500+", "10", "98%" and animates from 0 to the
@@ -140,7 +141,7 @@ export default function AboutSection() {
           </p>
         </motion.div>
 
-        {/* ── Right column: stats ── */}
+        {/* ── Right column: map ── */}
         <motion.div
           ref={rightRef}
           animate={
@@ -150,35 +151,25 @@ export default function AboutSection() {
           }
           initial={{ opacity: 0, x: reducedMotion ? 0 : 30 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
-          style={{ position: 'relative', overflow: 'hidden' }}
-          className="flex items-center"
+          className="flex flex-col items-start justify-center gap-6"
         >
-          {/* Decorative arabesque behind stats */}
-          <ArabesquePattern color="var(--color-gold)" opacity={0.04} />
-
-          {/* Stats grid: 3 columns on mobile, 1 column on desktop */}
-          <div
-            className="grid grid-cols-3 md:grid-cols-1 gap-6 w-full"
-            style={{ position: 'relative', zIndex: 1 }}
+          <span
+            className="font-body uppercase tracking-widest"
+            style={{
+              color: 'var(--color-gold)',
+              fontSize: '0.75rem',
+              fontWeight: 500,
+              letterSpacing: '0.15em',
+            }}
           >
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center text-center p-6 md:p-8"
-                style={{
-                  borderTop: '2px solid var(--color-gold)',
-                }}
-              >
-                <AnimatedCounter value={stat.value} />
-                <p
-                  className="font-body text-sm"
-                  style={{ color: '#6b7280', marginTop: '0.5rem' }}
-                >
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
+            Au départ de plusieurs villes
+          </span>
+          <img
+            src={mapImage}
+            alt="Carte des villes de départ"
+            className="w-full rounded-xl object-contain"
+            style={{ maxHeight: '360px', border: '1.5px solid var(--color-gold)', opacity: 0.9 }}
+          />
         </motion.div>
 
       </div>

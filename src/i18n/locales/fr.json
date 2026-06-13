@@ -6,6 +6,7 @@
     "rooms": "Chambres",
     "reviews": "Avis",
     "faq": "FAQ",
+    "booking": "Réserver",
     "contact": "Nous contacter"
   },
   "hero": {
@@ -32,15 +33,14 @@
   },
   "offers": {
     "eyebrow": "Nos formules",
-    "title": "Choisissez votre voyage",
-    "subtitle": "Trois niveaux de confort pour que chaque pèlerin trouve sa formule.",
+    "subtitle": "Deux formules sont disponibles : Éco et Premium, selon votre budget.",
     "filter_all": "Toutes",
     "filter_eco": "Économique",
     "filter_comfort": "Confort",
     "filter_premium": "Premium",
     "popular": "Recommandé",
     "select": "Choisir cette formule",
-    "disclaimer": "Tarifs indicatifs par personne en chambre quadruple. Réductions disponibles pour les groupes.",
+    "disclaimer": "Tarifs indicatifs par personne.",
     "tiers": {
       "economique": "Économique",
       "confort": "Confort",

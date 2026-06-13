@@ -6,11 +6,12 @@ import Button from '@/components/ui/Button'
 import LanguageSwitcher from '@/components/layout/LanguageSwitcher'
 
 const NAV_LINKS = [
-  { key: 'nav.about', href: '#about' },
-  { key: 'nav.offers', href: '#offers' },
-  { key: 'nav.rooms', href: '#rooms' },
+  { key: 'nav.about',   href: '#about' },
+  { key: 'nav.offers',  href: '#offers' },
+  { key: 'nav.booking', href: '#booking' },
+  { key: 'nav.rooms',   href: '#rooms' },
   { key: 'nav.reviews', href: '#reviews' },
-  { key: 'nav.faq', href: '#faq' },
+  { key: 'nav.faq',     href: '#faq' },
 ]
 
 function HamburgerIcon({ open }) {

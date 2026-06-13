@@ -5,18 +5,22 @@ import Button from '@/components/ui/Button'
 
 const TIER_STYLES = {
   economique: {
-    border: 'border-gray-200',
+    border: 'border-[var(--color-gold)]/40',
     shadow: '',
-  },
-  confort: {
-    border: 'border-[var(--color-gold)]',
-    shadow: 'shadow-[0_0_24px_rgba(201,168,76,0.15)]',
+    glow: '',
   },
   premium: {
-    border: 'border-[var(--color-gold-light)]',
-    shadow: '',
+    border: 'border-[var(--color-gold)]',
+    shadow: 'shadow-[0_0_32px_rgba(201,168,76,0.18)]',
+    glow: 'shadow-[0_0_48px_rgba(201,168,76,0.25)]',
   },
 }
+
+const ROOM_LABELS = [
+  { key: 'double', label: 'Chambre double' },
+  { key: 'triple', label: 'Chambre triple' },
+  { key: 'quad',   label: 'Chambre quad'   },
+]
 
 function SkeletonFallback() {
   return (
@@ -32,105 +36,80 @@ function SkeletonFallback() {
   )
 }
 
-function ExclusiveBadge() {
-  return (
-    <div
-      aria-label="Exclusif"
-      className="absolute top-4 right-4 bg-[var(--color-gold-dark)] text-[var(--color-white)] text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full"
-    >
-      Exclusif
-    </div>
-  )
-}
-
 export default function PackageCard({ offer, onSelect, isPopular }) {
   const { t } = useTranslation()
   const reducedMotion = useReducedMotion()
 
-  if (!offer) {
-    return <SkeletonFallback />
-  }
+  if (!offer) return <SkeletonFallback />
 
   const tierStyle = TIER_STYLES[offer.tier] ?? TIER_STYLES.economique
 
   const hoverAnimation = {
-    boxShadow: '0 20px 60px rgba(0,0,0,0.18)',
-    ...(reducedMotion ? {} : { y: -8 }),
+    boxShadow: '0 24px 64px rgba(0,0,0,0.22)',
+    ...(reducedMotion ? {} : { y: -6 }),
   }
-
-  const details = [
-    offer.duration,
-    offer.flights,
-    offer.hotelDistance,
-    offer.meals,
-    offer.groupSize,
-  ].filter(Boolean)
 
   return (
     <motion.div
       className={[
-        'relative rounded-2xl border-2 bg-[var(--color-white)] p-8 flex flex-col gap-6',
+        'relative rounded-2xl border-2 bg-[var(--color-white)] p-8 flex flex-col gap-6 h-full',
         tierStyle.border,
         tierStyle.shadow,
       ].join(' ')}
       whileHover={hoverAnimation}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
+      {/* Popular badge */}
       {isPopular && (
         <div
-          className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--color-gold)] text-[var(--color-black)] text-xs font-semibold uppercase tracking-widest px-4 py-1 rounded-full whitespace-nowrap z-10"
+          className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--color-gold)] text-[var(--color-black)] text-[10px] font-semibold uppercase tracking-widest px-4 py-1 rounded-full whitespace-nowrap z-10"
           aria-label={t('offers.popular')}
         >
           {t('offers.popular')}
         </div>
       )}
 
-      {offer.tier === 'premium' && <ExclusiveBadge />}
-
       {/* Tier label */}
-      <p className="font-body text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
-        {t(`offers.tiers.${offer.tier}`)}
-      </p>
-
-      {/* Price block */}
       <div>
-        <div className="flex items-baseline gap-1">
-          <span
-            className="font-display-latin text-4xl font-bold text-[var(--color-text-dark)]"
-            aria-label={`${offer.price} ${offer.currency}`}
-          >
-            {offer.price.toLocaleString('fr-FR')}
-          </span>
-          <span className="text-lg text-[var(--color-text-dark)] font-medium">
-            {offer.currency}
-          </span>
-        </div>
-        <p className="text-sm text-gray-500 mt-1">{offer.duration}</p>
+        <span className="font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-gold)]">
+          {t(`offers.tiers.${offer.tier}`)}
+        </span>
+        <p className="text-[11px] text-gray-400 uppercase tracking-widest mt-1">{offer.duration}</p>
       </div>
 
-      {/* Details list */}
-      {details.length > 0 && (
-        <ul className="flex flex-col gap-2 text-sm text-gray-600" aria-label="Détails de la formule">
-          {details.map((detail) => (
-            <li key={detail} className="flex items-start gap-2">
-              <span className="text-[var(--color-gold)] leading-none mt-0.5" aria-hidden="true">
-                ✦
-              </span>
-              <span>{detail}</span>
-            </li>
+      {/* Gold divider */}
+      <div style={{ width: 32, height: 1, background: 'var(--color-gold)', opacity: 0.5 }} aria-hidden="true" />
+
+      {/* Prices per room type */}
+      {offer.prices && (
+        <div className="flex flex-col gap-3">
+          {ROOM_LABELS.map(({ key, label }, i) => (
+            <div key={key}>
+              <div className="flex justify-between items-baseline">
+                <span className="font-body text-sm text-gray-500">{label}</span>
+                <span className="font-display-latin text-2xl font-bold text-[var(--color-text-dark)]">
+                  {offer.prices[key].toLocaleString('fr-FR')}
+                  <span className="text-base font-medium ml-1">{offer.currency}</span>
+                </span>
+              </div>
+              {i < ROOM_LABELS.length - 1 && (
+                <div className="mt-3 border-t border-gray-100" aria-hidden="true" />
+              )}
+            </div>
           ))}
-        </ul>
+        </div>
       )}
 
+      {/* Gold divider */}
+      <div style={{ width: '100%', height: 1, background: 'var(--color-gold)', opacity: 0.15 }} aria-hidden="true" />
+
       {/* Highlights */}
-      {offer.highlights && offer.highlights.length > 0 && (
-        <ul className="flex flex-col gap-2 text-sm text-[var(--color-text-dark)]" aria-label="Points forts">
-          {offer.highlights.map((highlight) => (
-            <li key={highlight} className="flex items-start gap-2">
-              <span className="text-[var(--color-gold)] leading-none mt-0.5" aria-hidden="true">
-                ✦
-              </span>
-              <span>{highlight}</span>
+      {offer.highlights?.length > 0 && (
+        <ul className="flex flex-col gap-2 text-sm text-gray-600" aria-label="Services inclus">
+          {offer.highlights.map((item) => (
+            <li key={item} className="flex items-start gap-2">
+              <span className="text-[var(--color-gold)] leading-none mt-0.5 flex-shrink-0" aria-hidden="true">✦</span>
+              <span>{item}</span>
             </li>
           ))}
         </ul>

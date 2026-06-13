@@ -13,6 +13,7 @@ import ReviewsSection from '@/components/sections/ReviewsSection'
 import FAQSection from '@/components/sections/FAQSection'
 import CTASection from '@/components/sections/CTASection'
 import MedinaSection from '@/components/sections/MedinaSection'
+import BookingSection from '@/components/sections/BookingSection'
 import FooterSection from '@/components/sections/FooterSection'
 
 export default function App() {
@@ -25,8 +26,10 @@ export default function App() {
         <AboutSection />
         <MedinaSection />
         <OffersSection />
-        <RoomsSection />
         <ReviewsSection />
+        <BookingSection />
+        <RoomsSection />
+        
         <FAQSection />
         <CTASection />
       </main>
