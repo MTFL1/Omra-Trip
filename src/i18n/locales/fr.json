@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "logo": "Omra Trip",
+    "about": "À propos",
+    "offers": "Offres",
+    "rooms": "Chambres",
+    "reviews": "Avis",
+    "faq": "FAQ",
+    "contact": "Nous contacter"
+  },
+  "hero": {
+    "bismillah": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
+    "eyebrow": "Voyage spirituel vers les lieux saints",
+    "title": "Accomplissez votre Omra en toute sérénité",
+    "subtitle": "Des formules pensées pour chaque pèlerin — de l'économique au premium.",
+    "cta_offers": "Voir les offres",
+    "cta_contact": "Nous contacter",
+    "scroll_hint": "Découvrir"
+  },
+  "about": {
+    "eyebrow": "Notre mission",
+    "title": "L'Omra, un voyage unique",
+    "subtitle": "Nous vous accompagnons dans l'un des voyages les plus importants de votre vie.",
+    "p1": "L'Omra est le petit pèlerinage islamique, réalisable à tout moment de l'année. Contrairement au Hajj, elle n'est pas obligatoire mais constitue un acte d'adoration profondément recommandé.",
+    "p2": "Notre agence vous accompagne pas à pas : visa, logement à proximité des lieux saints, guidance spirituelle et assistance 24h/24. Votre sérénité est notre priorité.",
+    "stat1_value": "500+",
+    "stat1_label": "Pèlerins accompagnés",
+    "stat2_value": "10",
+    "stat2_label": "Ans d'expérience",
+    "stat3_value": "98%",
+    "stat3_label": "Taux de satisfaction"
+  },
+  "offers": {
+    "eyebrow": "Nos formules",
+    "title": "Choisissez votre voyage",
+    "subtitle": "Trois niveaux de confort pour que chaque pèlerin trouve sa formule.",
+    "filter_all": "Toutes",
+    "filter_eco": "Économique",
+    "filter_comfort": "Confort",
+    "filter_premium": "Premium",
+    "popular": "Recommandé",
+    "select": "Choisir cette formule",
+    "disclaimer": "Tarifs indicatifs par personne en chambre quadruple. Réductions disponibles pour les groupes.",
+    "tiers": {
+      "economique": "Économique",
+      "confort": "Confort",
+      "premium": "Premium"
+    }
+  },
+  "rooms": {
+    "eyebrow": "Hébergement",
+    "title": "Nos types de chambres",
+    "subtitle": "Des chambres adaptées à tous les budgets, à proximité de la Mosquée.",
+    "capacity": "{{count}} personne(s)",
+    "from": "+{{amount}}€ / pers.",
+    "included": "Inclus dans le tarif de base"
+  },
+  "reviews": {
+    "eyebrow": "Témoignages",
+    "title": "Ce que disent nos pèlerins",
+    "subtitle": "Des milliers de fidèles nous ont fait confiance.",
+    "soon": "Témoignages bientôt disponibles"
+  },
+  "faq": {
+    "eyebrow": "Questions fréquentes",
+    "title": "Tout ce que vous devez savoir",
+    "subtitle": "Des réponses claires à vos questions les plus courantes.",
+    "q1": "Qui peut effectuer l'Omra ?",
+    "a1": "Tout musulman, homme ou femme, en bonne santé physique et financièrement capable, peut effectuer l'Omra à tout moment de l'année. Il n'y a pas de limite d'âge, mais une autorisation parentale est requise pour les mineurs.",
+    "q2": "Quelles sont les démarches pour le visa ?",
+    "a2": "Nous nous occupons intégralement des démarches de visa pour l'Arabie Saoudite. Il vous suffit de nous fournir votre passeport valide (au moins 6 mois), des photos d'identité et un justificatif de domicile.",
+    "q3": "Y a-t-il des exigences de santé ?",
+    "a3": "Un certificat de vaccination contre la méningite est obligatoire. Il est également recommandé de se vacciner contre la grippe. Vous devrez fournir un certificat médical lors de l'inscription.",
+    "q4": "Quand puis-je effectuer l'Omra ?",
+    "a4": "L'Omra peut être effectuée à n'importe quel moment de l'année, à l'exception des jours du Hajj. Nous proposons des départs toute l'année avec des dates fixées à l'avance.",
+    "q5": "Quelles sont les conditions de paiement ?",
+    "a5": "Un acompte de 30% est requis à l'inscription. Le solde doit être réglé au plus tard 45 jours avant le départ. Des facilités de paiement en 3 fois sans frais sont disponibles.",
+    "q6": "Quelle est la franchise bagages autorisée ?",
+    "a6": "La franchise bagages dépend de la compagnie aérienne utilisée. En général, elle est de 23 kg en soute et 7 kg en cabine. Nous vous communiquons les détails précis lors de la confirmation de votre réservation."
+  },
+  "cta": {
+    "title": "Prêt à accomplir votre Omra ?",
+    "subtitle": "Contactez-nous sur WhatsApp pour obtenir un devis personnalisé et gratuit.",
+    "button": "Démarrer sur WhatsApp"
+  },
+  "footer": {
+    "tagline": "Votre voyage spirituel, notre engagement.",
+    "nav_title": "Navigation",
+    "legal_title": "Informations légales",
+    "contact_title": "Contact",
+    "mentions": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions générales",
+    "address": "15 Rue de la Paix, 75001 Paris",
+    "phone": "+33 6 00 00 00 00",
+    "email": "contact@omratrip.fr",
+    "copyright": "© 2025 Omra Trip. Tous droits réservés.",
+    "made_with": "Fait avec ♥ pour les pèlerins"
+  },
+  "whatsapp": {
+    "message": "Bonjour, je souhaite obtenir des informations sur vos formules Omra."
+  }
+}
