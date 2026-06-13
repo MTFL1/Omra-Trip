@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import ArabesquePattern from '@/components/ui/ArabesquePattern'
-// Place your Medina video at src/assets/medina.mp4
 import medinaVideo from '@/assets/medina.mp4'
 
 export default function MedinaSection() {
@@ -106,7 +105,7 @@ export default function MedinaSection() {
             color: 'var(--color-gold)',
           }}
         >
-          {t('about.stat2_label')}
+          Ressourcez-vous
         </p>
 
         {/* Arabic city name */}
