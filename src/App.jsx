@@ -3,6 +3,7 @@ import { LazyMotion, domAnimation } from 'framer-motion'
 // Layout
 import ScrollProgress from '@/components/layout/ScrollProgress'
 import Navbar from '@/components/layout/Navbar'
+import WhatsAppFloat from '@/components/layout/WhatsAppFloat'
 
 // Sections
 import HeroSection from '@/components/sections/HeroSection'
@@ -26,14 +27,13 @@ export default function App() {
         <AboutSection />
         <MedinaSection />
         <OffersSection />
-        <BookingSection />
-        <ReviewsSection />
         <RoomsSection />
-        
+        <ReviewsSection />
+        <BookingSection />
         <FAQSection />
-        <CTASection />
       </main>
       <FooterSection />
+      <WhatsAppFloat />
     </LazyMotion>
   )
 }

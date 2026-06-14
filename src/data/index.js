@@ -32,28 +32,6 @@ export const offers = [
   },
 ]
 
-export const hotels = [
-  {
-    id: 'meccah',
-    cityKey: 'rooms.city_meccah',
-    name: 'DoubleTree by Hilton Jabal Omar',
-    equivalent: true,
-    stars: 5,
-    distanceKey: 'rooms.distance_meccah',
-    amenities: ['rooms.amenity_breakfast', 'rooms.amenity_wifi', 'rooms.amenity_ac', 'rooms.amenity_kaaba_view'],
-    image: null,
-  },
-  {
-    id: 'madina',
-    cityKey: 'rooms.city_madina',
-    name: 'Hôtel Valy',
-    equivalent: true,
-    stars: 4,
-    distanceKey: 'rooms.distance_madina',
-    amenities: ['rooms.amenity_breakfast', 'rooms.amenity_wifi', 'rooms.amenity_ac', 'rooms.amenity_nabawi'],
-    image: null,
-  },
-]
 
 export const reviews = [
   {
