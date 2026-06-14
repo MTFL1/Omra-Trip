@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 const SOCIAL = [
@@ -29,11 +28,8 @@ const SOCIAL = [
 ]
 
 export default function Navbar() {
-  const { i18n } = useTranslation()
   const reducedMotion = useReducedMotion()
   const [scrolled, setScrolled] = useState(false)
-
-  const isRTL = i18n.dir() === 'rtl'
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
@@ -50,7 +46,6 @@ export default function Navbar() {
     <motion.nav
       {...mountAnimation}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      dir={isRTL ? 'rtl' : 'ltr'}
       aria-label="Navigation"
       style={{
         position: 'fixed',

@@ -55,7 +55,7 @@ const linkClass =
 export default function FooterSection() {
   const { t } = useTranslation()
 
-  const whatsappUrl = `https://wa.me/33600000000?text=${encodeURIComponent(t('whatsapp.message'))}`
+  const whatsappUrl = `https://wa.me/32486101473?text=${encodeURIComponent(t('whatsapp.message'))}`
 
   const navLinks = [
     { href: '#about',   label: t('nav.about') },

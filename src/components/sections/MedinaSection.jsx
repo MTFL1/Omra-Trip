@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import ArabesquePattern from '@/components/ui/ArabesquePattern'
 import medinaVideo from '@/assets/medina.mp4'
+import medinaPoster from '@/assets/medina-poster.webp'
 
 export default function MedinaSection() {
   const { t } = useTranslation()
@@ -65,10 +66,11 @@ export default function MedinaSection() {
         <video
           ref={videoRef}
           src={medinaVideo}
+          poster={medinaPoster}
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           style={{
             width: '100%',
             height: '100%',

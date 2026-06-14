@@ -136,14 +136,14 @@ export default function BookingSection() {
   function handleWhatsApp() {
     if (!isComplete) return
     const msg = encodeURIComponent(buildMessageLines().join('\n'))
-    window.open(`https://wa.me/33600000000?text=${msg}`, '_blank')
+    window.open(`https://wa.me/32486101473?text=${msg}`, '_blank')
   }
 
   function handleEmail() {
     if (!isComplete) return
     const subject = encodeURIComponent(`Demande de réservation Omra — ${name.trim()}`)
     const body    = encodeURIComponent(buildMessageLines().join('\n'))
-    window.open(`mailto:contact@omratrip.fr?subject=${subject}&body=${body}`, '_blank')
+    window.open(`mailto:omratrip@yahoo.com?subject=${subject}&body=${body}`, '_blank')
   }
 
   return (

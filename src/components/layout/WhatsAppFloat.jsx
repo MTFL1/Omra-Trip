@@ -13,7 +13,7 @@ export default function WhatsAppFloat() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const href = `https://wa.me/33600000000?text=${encodeURIComponent(t('whatsapp.message'))}`
+  const href = `https://wa.me/32486101473?text=${encodeURIComponent(t('whatsapp.message'))}`
 
   return (
     <AnimatePresence>

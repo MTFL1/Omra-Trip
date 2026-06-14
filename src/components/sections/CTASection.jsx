@@ -19,13 +19,13 @@ const WhatsAppSVG = () => (
 )
 
 export default function CTASection() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const reducedMotion = useReducedMotion()
 
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 })
 
-  const whatsappUrl = `https://wa.me/33600000000?text=${encodeURIComponent(t('whatsapp.message'))}`
+  const whatsappUrl = `https://wa.me/32486101473?text=${encodeURIComponent(t('whatsapp.message'))}`
 
   const sectionVariants = {
     hidden: reducedMotion
@@ -36,10 +36,7 @@ export default function CTASection() {
       : { opacity: 1, scale: 1, transition: { duration: 0.6, ease: 'easeOut' } },
   }
 
-  const bubblePosition =
-    i18n.dir() === 'rtl'
-      ? { left: 24, right: 'auto' }
-      : { right: 24, left: 'auto' }
+  const bubblePosition = { right: 24, left: 'auto' }
 
   const bubbleAnimation = reducedMotion
     ? {}

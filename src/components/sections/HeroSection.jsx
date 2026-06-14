@@ -6,6 +6,7 @@ import Button from '@/components/ui/Button'
 import ArabesquePattern from '@/components/ui/ArabesquePattern'
 // Place your Kaaba tawaf video at src/assets/kaaba.mp4
 import kaabaVideo from '@/assets/kaaba.mp4'
+import kaabaPoster from '@/assets/kaaba-poster.webp'
 
 const containerVariants = {
   hidden: {},
@@ -63,7 +64,7 @@ export default function HeroSection() {
 
   const itemVariants = buildItemVariants(reducedMotion)
 
-  const whatsappHref = `https://wa.me/33600000000?text=${encodeURIComponent(t('whatsapp.message'))}`
+  const whatsappHref = `https://wa.me/32486101473?text=${encodeURIComponent(t('whatsapp.message'))}`
 
   return (
     <section
@@ -93,10 +94,11 @@ export default function HeroSection() {
         <video
           ref={videoRef}
           src={kaabaVideo}
+          poster={kaabaPoster}
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           style={{
             width: '100%',
             height: '100%',

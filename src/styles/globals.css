@@ -64,39 +64,6 @@ a {
   outline-offset: 3px;
 }
 
-/* ─── 7. RTL support ───────────────────────────────────────────── */
-[dir="rtl"] body {
-  font-family: var(--font-display-ar), var(--font-body), sans-serif;
-}
-
-[dir="rtl"] h1,
-[dir="rtl"] h2,
-[dir="rtl"] h3,
-[dir="rtl"] h4 {
-  font-family: var(--font-display-ar), serif;
-}
-
-[dir="rtl"] .flex-row {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .text-left {
-  text-align: right;
-}
-
-[dir="rtl"] .ml-auto {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-[dir="rtl"] .pl-4 {
-  padding-left: 0;
-  padding-right: 1rem;
-}
-
-[dir="rtl"] .rtl-flip {
-  transform: scaleX(-1);
-}
 
 /* ─── 8. Utility classes ───────────────────────────────────────── */
 .section-padding {
