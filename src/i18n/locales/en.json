@@ -3,7 +3,7 @@
     "logo": "Omra Trip",
     "about": "About",
     "offers": "Offers",
-    "rooms": "Rooms",
+    "rooms": "Hotels",
     "reviews": "Reviews",
     "faq": "FAQ",
     "contact": "Contact us"
@@ -50,11 +50,19 @@
   },
   "rooms": {
     "eyebrow": "Accommodation",
-    "title": "Our room types",
-    "subtitle": "Rooms for all budgets, close to the Mosque.",
-    "capacity": "{{count}} person(s)",
-    "from": "+{{amount}}€ / pers.",
-    "included": "Included in base price"
+    "title": "Our partner hotels",
+    "subtitle": "Carefully selected properties, steps away from the Holy Sites.",
+    "equivalent": "or equivalent",
+    "city_meccah": "Mecca",
+    "city_madina": "Medina",
+    "distance_meccah": "200m from Al-Haram Mosque",
+    "distance_madina": "At the foot of Masjid An-Nabawi",
+    "amenity_breakfast": "Breakfast included",
+    "amenity_wifi": "Free WiFi",
+    "amenity_ac": "Air conditioning",
+    "amenity_kaaba_view": "Kaaba view",
+    "amenity_nabawi": "Near Masjid Nabawi",
+    "amenity_haram": "Close to the Harams"
   },
   "reviews": {
     "eyebrow": "Testimonials",

@@ -1,5 +1,5 @@
 const SHARED_HIGHLIGHTS = [
-  'Hôtels 5 ⭐️ à 200m de la Mosquée Al-Haram, Makkah',
+  'Hôtels 5 ⭐️ à 500m de la Mosquée Al-Haram, Makkah',
   'Hôtels 5 ⭐️ et 4 ⭐️ à Madina — au pied du Haram',
   'Vols directs + taxes incluses (Saudia Airlines)',
   'Visa Schengen intégralement pris en charge',
@@ -32,26 +32,25 @@ export const offers = [
   },
 ]
 
-export const rooms = [
+export const hotels = [
   {
-    id: 'quadruple',
-    type: 'quadruple',
-    capacity: 4,
-    amenities: ['Climatisation', 'WiFi gratuit', 'Salle de bain privée', 'TV satellite'],
+    id: 'meccah',
+    cityKey: 'rooms.city_meccah',
+    name: 'DoubleTree by Hilton Jabal Omar',
+    equivalent: true,
+    stars: 5,
+    distanceKey: 'rooms.distance_meccah',
+    amenities: ['rooms.amenity_breakfast', 'rooms.amenity_wifi', 'rooms.amenity_ac', 'rooms.amenity_kaaba_view'],
     image: null,
   },
   {
-    id: 'triple',
-    type: 'triple',
-    capacity: 3,
-    amenities: ['Climatisation', 'WiFi gratuit', 'Salle de bain privée', 'TV satellite', 'Minibar'],
-    image: null,
-  },
-  {
-    id: 'double',
-    type: 'double',
-    capacity: 2,
-    amenities: ['Climatisation', 'WiFi gratuit', 'Salle de bain privée', 'TV satellite', 'Minibar'],
+    id: 'madina',
+    cityKey: 'rooms.city_madina',
+    name: 'Hôtel Valy',
+    equivalent: true,
+    stars: 4,
+    distanceKey: 'rooms.distance_madina',
+    amenities: ['rooms.amenity_breakfast', 'rooms.amenity_wifi', 'rooms.amenity_ac', 'rooms.amenity_nabawi'],
     image: null,
   },
 ]

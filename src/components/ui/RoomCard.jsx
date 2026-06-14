@@ -2,19 +2,19 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
-const PersonIcon = () => (
-  <svg
-    width="14"
-    height="14"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    aria-hidden="true"
-  >
-    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
+const StarIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
   </svg>
 )
 
-export default function RoomCard({ room }) {
+const LocationIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+  </svg>
+)
+
+export default function RoomCard({ hotel }) {
   const { t } = useTranslation()
   const reducedMotion = useReducedMotion()
 
@@ -22,67 +22,65 @@ export default function RoomCard({ room }) {
 
   return (
     <div className="rounded-xl overflow-hidden shadow-[var(--shadow-md)] bg-[var(--color-white)] flex flex-col">
-      {/* Image placeholder — replace background with actual room image when available */}
+      {/* Header gradient */}
       <div className="h-48 overflow-hidden relative">
         <motion.div
-          className="absolute inset-0 flex items-center justify-center"
+          className="absolute inset-0 flex flex-col items-center justify-center gap-2"
           whileHover={imageHover}
           transition={{ duration: 0.4, ease: 'easeOut' }}
           style={{
             background:
-              'radial-gradient(ellipse at center, rgba(201,168,76,0.3) 0%, rgba(10,10,10,0.8) 100%)',
+              'radial-gradient(ellipse at center, rgba(201,168,76,0.35) 0%, rgba(10,10,10,0.85) 100%)',
           }}
         >
-          {/* Replace background with actual room image when available */}
-          <span className="font-display-latin text-2xl text-[var(--color-white)] capitalize tracking-wide drop-shadow-md select-none">
-            {room.type}
+          {/* Stars */}
+          <div className="flex gap-1" aria-label={`${hotel.stars} étoiles`}>
+            {Array.from({ length: hotel.stars }).map((_, i) => (
+              <span key={i} className="text-[var(--color-gold)]">
+                <StarIcon />
+              </span>
+            ))}
+          </div>
+          {/* City name */}
+          <span className="font-display-latin text-2xl text-[var(--color-white)] tracking-wide drop-shadow-md select-none">
+            {t(hotel.cityKey)}
           </span>
         </motion.div>
       </div>
 
       {/* Card body */}
       <div className="p-6 flex flex-col gap-4 flex-1">
-        {/* Room type heading */}
-        <h3 className="font-display-latin text-2xl text-[var(--color-text-dark)] capitalize">
-          {room.type}
-        </h3>
+        {/* Hotel name */}
+        <div>
+          <h3 className="font-display-latin text-xl text-[var(--color-text-dark)] leading-snug">
+            {hotel.name}
+          </h3>
+          {hotel.equivalent && (
+            <p className="text-xs text-[var(--color-text-muted)] mt-1 italic">
+              {t('rooms.equivalent')}
+            </p>
+          )}
+        </div>
 
-        {/* Capacity badge */}
-        <div className="inline-flex items-center gap-1.5 bg-[var(--color-gray-soft)] text-[var(--color-text-dark)] text-xs font-medium px-3 py-1.5 rounded-full self-start">
-          <PersonIcon />
-          <span>{t('rooms.capacity', { count: room.capacity })}</span>
+        {/* Distance */}
+        <div className="inline-flex items-center gap-1.5 text-xs text-[var(--color-gold)] font-medium">
+          <LocationIcon />
+          <span>{t(hotel.distanceKey)}</span>
         </div>
 
         {/* Amenities */}
-        {room.amenities && room.amenities.length > 0 && (
-          <ul
-            className="flex flex-wrap gap-2"
-            aria-label="Équipements"
-          >
-            {room.amenities.map((amenity) => (
+        {hotel.amenities && hotel.amenities.length > 0 && (
+          <ul className="flex flex-wrap gap-2" aria-label="Équipements">
+            {hotel.amenities.map((key) => (
               <li
-                key={amenity}
+                key={key}
                 className="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full"
               >
-                {amenity}
+                {t(key)}
               </li>
             ))}
           </ul>
         )}
-
-        {/* Price modifier */}
-        <div className="mt-auto pt-2">
-          {room.priceModifier === 0 ? (
-            <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-full">
-              <span aria-hidden="true">✓</span>
-              {t('rooms.included')}
-            </span>
-          ) : (
-            <span className="inline-flex items-center text-xs font-semibold text-[var(--color-gold)] bg-[var(--color-gold-light)]/20 border border-[var(--color-gold-light)] px-3 py-1.5 rounded-full">
-              {t('rooms.from', { amount: room.priceModifier })}
-            </span>
-          )}
-        </div>
       </div>
     </div>
   )

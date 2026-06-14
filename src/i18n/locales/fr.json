@@ -3,7 +3,7 @@
     "logo": "Omra Trip",
     "about": "À propos",
     "offers": "Offres",
-    "rooms": "Chambres",
+    "rooms": "Hôtels",
     "reviews": "Avis",
     "faq": "FAQ",
     "booking": "Réserver",
@@ -37,11 +37,11 @@
     "popular": "Recommandé",
     "select": "Configurer ma réservation",
     "urgency": "⚡ Places limitées",
-    "disclaimer": "Tarifs indicatifs — chambre quad, par personne.",
+    "disclaimer": "Tarifs indicatifs,par personne.",
     "from": "À partir de",
     "included_in_both": "Inclus dans les deux formules",
     "eco_note": "Hôtels 3 à 4★ selon disponibilité — précisés après votre devis",
-    "premium_note": "Hôtels 5★ garantis, à 200m de la Mosquée Al-Haram",
+    "premium_note": "Hôtels 5★ garantis, à 500m de la Mosquée Al-Haram",
     "tiers": {
       "economique": "Économique",
       "confort": "Confort",
@@ -50,11 +50,19 @@
   },
   "rooms": {
     "eyebrow": "Hébergement",
-    "title": "Nos types de chambres",
-    "subtitle": "Des chambres adaptées à tous les budgets, à proximité de la Mosquée.",
-    "capacity": "{{count}} personne(s)",
-    "from": "+{{amount}}€ / pers.",
-    "included": "Inclus dans le tarif de base"
+    "title": "Nos hôtels partenaires",
+    "subtitle": "Des établissements soigneusement sélectionnés, à deux pas des lieux saints.",
+    "equivalent": "ou équivalent",
+    "city_meccah": "La Mecque",
+    "city_madina": "Médine",
+    "distance_meccah": "500m de la Mosquée Al-Haram",
+    "distance_madina": "Au pied du Masjid An-Nabawi",
+    "amenity_breakfast": "Petit-déjeuner inclus",
+    "amenity_wifi": "WiFi gratuit",
+    "amenity_ac": "Climatisation",
+    "amenity_kaaba_view": "Vue sur la Kaaba",
+    "amenity_nabawi": "Proche Masjid Nabawi",
+    "amenity_haram": "Proche des Haram"
   },
   "reviews": {
     "eyebrow": "Témoignages",
@@ -95,7 +103,7 @@
     "address": "15 Rue de la Paix, 75001 Paris",
     "phone": "+33 6 00 00 00 00",
     "email": "contact@omratrip.fr",
-    "copyright": "© 2025 Omra Trip. Tous droits réservés.",
+    "copyright": "© 2026 Omra Trip. Tous droits réservés.",
     "made_with": "Fait avec ♥ pour les pèlerins"
   },
   "whatsapp": {

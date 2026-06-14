@@ -2,16 +2,38 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
-import Button from '@/components/ui/Button'
-import LanguageSwitcher from '@/components/layout/LanguageSwitcher'
+
+const SOCIAL = [
+  {
+    id: 'facebook',
+    label: 'Facebook',
+    href: 'https://www.facebook.com/omratrip',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+      </svg>
+    ),
+  },
+  {
+    id: 'instagram',
+    label: 'Instagram',
+    href: 'https://www.instagram.com/omratrip',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <circle cx="12" cy="12" r="3" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+]
 
 export default function Navbar() {
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
   const reducedMotion = useReducedMotion()
   const [scrolled, setScrolled] = useState(false)
 
   const isRTL = i18n.dir() === 'rtl'
-  const whatsappURL = `https://wa.me/33600000000?text=${encodeURIComponent(t('whatsapp.message'))}`
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
@@ -53,7 +75,7 @@ export default function Navbar() {
         <a
           href="#"
           className="flex items-center"
-          aria-label={t('nav.logo', 'Omra Trip')}
+          aria-label="Omra Trip"
         >
           <span
             className="font-display-latin text-2xl font-semibold"
@@ -70,14 +92,20 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Language switcher + WhatsApp CTA */}
-        <div className="flex items-center gap-4">
-          <LanguageSwitcher />
-          <div className="hidden md:block">
-            <Button variant="whatsapp" size="sm" href={whatsappURL}>
-              {t('nav.contact')}
-            </Button>
-          </div>
+        {/* Social links */}
+        <div className="flex items-center gap-3">
+          {SOCIAL.map((s) => (
+            <a
+              key={s.id}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="text-white/60 hover:text-[var(--color-gold)] transition-colors duration-200"
+            >
+              {s.icon}
+            </a>
+          ))}
         </div>
       </div>
     </motion.nav>

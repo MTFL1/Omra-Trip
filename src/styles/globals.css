@@ -20,6 +20,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -28,6 +29,7 @@ body {
   background: var(--color-white);
   -webkit-font-smoothing: antialiased;
   margin: 0;
+  overflow-x: hidden;
 }
 
 img,
