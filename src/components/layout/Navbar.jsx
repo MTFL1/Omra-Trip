@@ -59,17 +59,20 @@ export default function Navbar() {
         right: 0,
         zIndex: 'var(--z-sticky)',
         transition: 'background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease',
-        backgroundColor: scrolled ? 'rgba(10, 10, 10, 0.9)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: scrolled
-          ? '1px solid rgba(232, 213, 163, 0.1)'
-          : '1px solid transparent',
+        backgroundColor: 'transparent',
+        backdropFilter: 'none',
+        WebkitBackdropFilter: 'none',
+        borderBottom: '1px solid transparent',
       }}
     >
       <div
         className="container-max flex items-center justify-between"
-        style={{ height: 'clamp(4rem, 5vw, 5rem)' }}
+        style={{
+          height: 'clamp(4rem, 5vw, 5rem)',
+          opacity: scrolled ? 0 : 1,
+          pointerEvents: scrolled ? 'none' : 'auto',
+          transition: 'opacity 0.4s ease',
+        }}
       >
         {/* Logo */}
         <a
